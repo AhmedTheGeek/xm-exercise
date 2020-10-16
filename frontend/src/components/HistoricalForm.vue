@@ -180,18 +180,20 @@ export default {
       }
     },
     query() {
-      this.call("historical", {
-        method: "POST",
-        headers: {
-          "Content-Types": "application/json",
-        },
-        body: JSON.stringify({
-          email: this.userEmail,
-          symbol: this.selectedSymbol.symbol,
-          startDate: this.startDate,
-          endDate: this.endDate,
-        }),
-      });
+      this.call(
+        "historical?" +
+          new URLSearchParams({
+            email: this.userEmail,
+            symbol: this.selectedSymbol.symbol,
+            startDate: new Date(this.startDate).getTime(),
+            endDate: new Date(this.endDate).getTime(),
+          }),
+        {
+          method: "GET",
+        }
+      )
+        .then((response) => console.log(response))
+        .catch((error) => console.log(error));
     },
     fetchSymbols() {
       this.call("symbol")

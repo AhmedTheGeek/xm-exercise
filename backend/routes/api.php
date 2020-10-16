@@ -15,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix("v1")->group(function() {
-    Route::post('historical', 'Historical@get');
+    Route::get('historical', 'Historical@get');
     Route::get('symbol', 'Symbol@get');
 });
