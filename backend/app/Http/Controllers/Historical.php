@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Http\ResponseTrait;
 use Illuminate\Http\JsonResponse;
+use App\Http\Requests\HistoricalQuery;
 
-class Historical extends Controller
-{
+class Historical extends Controller {
+
     use ResponseTrait;
 
     /**
-     * @param Request $request
+     * @param HistoricalQuery $request
      *
      * @return JsonResponse
      */
-    public function process(Request $request): JsonResponse {
-        return response()->json(['name' => 'ahmed']);
+    public function get( HistoricalQuery $request ): JsonResponse {
+        if ( $request->validated() ) {
+            return response()->json( [ 'name' => 'ahmed' ] );
+        }
     }
 }
