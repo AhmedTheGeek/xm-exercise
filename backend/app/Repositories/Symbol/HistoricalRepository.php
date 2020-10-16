@@ -28,7 +28,7 @@ class HistoricalRepository implements SymbolRepository {
 
     public function getInRange( $symbol, $start_date, $end_date ) {
         $response = $this->fetchData([
-            'period1' => $end_date,
+            'period1' => $start_date,
             'period2' => $end_date,
             'symbol' => $symbol,
             'frequency' => '1d',
@@ -36,9 +36,9 @@ class HistoricalRepository implements SymbolRepository {
         ]);
 
         if(200 === $response->getStatusCode()) {
-            return json_encode($response->getBody()->getContents());
+            return $response->getBody()->getContents();
         }
 
-        return json_encode(['message' => "error"]);
+        return ['message' => 'error'];
     }
 }

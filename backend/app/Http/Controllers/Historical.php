@@ -27,7 +27,7 @@ class Historical extends Controller {
     public function get( HistoricalQuery $request ): string {
         if ( $request->validated() ) {
 
-            return $this->symbolRepository->getInRange($request->symbol, $request->start_date, $request->end_date );
+            return $this->symbolRepository->getInRange($request->symbol, $request->startDate, $request->endDate );
         }
 
         return ["message" => "error"];

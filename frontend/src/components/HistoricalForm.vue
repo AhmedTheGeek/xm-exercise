@@ -185,14 +185,19 @@ export default {
           new URLSearchParams({
             email: this.userEmail,
             symbol: this.selectedSymbol.symbol,
-            startDate: new Date(this.startDate).getTime(),
-            endDate: new Date(this.endDate).getTime(),
+            startDate: Math.floor(new Date(this.startDate).getTime() / 1000),
+            endDate: Math.floor(new Date(this.endDate).getTime() / 1000),
           }),
         {
           method: "GET",
         }
       )
-        .then((response) => console.log(response))
+        .then((response) =>
+          this.$router.push({
+            name: "HistoricalChart",
+            params: { response },
+          })
+        )
         .catch((error) => console.log(error));
     },
     fetchSymbols() {

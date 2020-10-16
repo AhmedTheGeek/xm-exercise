@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Header />
-    <HistoricalForm />
+    <router-view />
     <Footer />
   </div>
 </template>
@@ -10,14 +10,11 @@
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 
-import HistoricalForm from "./components/HistoricalForm";
-
 export default {
   name: "App",
   components: {
     Header,
     Footer,
-    HistoricalForm,
   },
 };
 </script>
