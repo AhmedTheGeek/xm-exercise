@@ -8,9 +8,7 @@
 ### Installation
 
 1. Clone the project.
-2. Follow the instruction to download the `prod.env.example.zip` file.
-3. Unzip it and rename the content to .env and place it in the `backend` directory.
-4. Run `make up`.
+2. Run `make up`.
 
 ### Dockerized Version
 
@@ -32,7 +30,8 @@ To start the frontend:
 
 ### Runnning the unit tests
 
-After cloning the project, from the root directory run `make test`
+if you're running on docker just run `docker-compose exec backend php artisan test`
+otherwise, from the root directory run `make test`
 
 ### Future Todo list
 

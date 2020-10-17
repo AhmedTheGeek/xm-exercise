@@ -1,12 +1,7 @@
 version: "3"
 services:
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    volumes:
-      - ./backend:/app
-    working_dir: /app
+    image: ahmedgeek/xm-backend:latest
     environment:
       SERVICE_NAME: fpm
     ports:
@@ -17,9 +12,7 @@ services:
       - app-network
 
   client:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: ahmedgeek/xm-frontend:latest
     ports:
       - "8080:8080"
     expose:

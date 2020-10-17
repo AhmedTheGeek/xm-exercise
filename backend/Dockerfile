@@ -1,6 +1,8 @@
 FROM php:7.2-fpm
 
-COPY composer.lock composer.json package.json /app/
+COPY . /app/
+
+WORKDIR /app
 
 ENV DOCKERIZE_VERSION 0.6.1
 
@@ -42,8 +44,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer install
 RUN php artisan cache:clear
 RUN php artisan key:generate
-RUN php artisan optimize
-
 CMD php artisan serve --host=0.0.0.0 --port=8000
 
 EXPOSE 8000
