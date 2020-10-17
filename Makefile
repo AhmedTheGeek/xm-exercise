@@ -43,14 +43,11 @@ docker:
 down:
 	docker-compose down
 
-docker-build:
-	docker-compose up -d --build
+
 print-access-info:
 	$(info Access the frontend on "http://localhost:8080")
 
-up:: install
-up:: docker-build
-up:: print-access-info
+up:: docker
 
 phpunit::
 	$(info Running PhpUnit)
