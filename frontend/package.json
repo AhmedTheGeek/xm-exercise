@@ -8,10 +8,11 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "apexcharts": "^3.22.0",
+    "dateformat": "^3.0.3",
     "dotenv": "^8.2.0",
+    "trading-vue-js": "^0.8.0",
     "vue": "^2.6.11",
-    "vue-apexcharts": "^1.6.0",
+    "vue-google-charts": "^0.3.3",
     "vue-router": "^3.4.7",
     "vue-select": "^3.10.8",
     "vuejs-datepicker": "^1.6.2",

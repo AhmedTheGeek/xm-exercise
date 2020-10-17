@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use DateTime;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -28,9 +27,10 @@ class HistoricalQuery extends FormRequest
     {
         return [
             'email' => 'required|email',
-            'symbol' => 'required|string',
+            'symbol' => 'required|string|min:1|max:5',
             'startDate' => 'required|int',
             'endDate' => 'required|int',
+            'companyName' => 'required|string'
         ];
     }
 
