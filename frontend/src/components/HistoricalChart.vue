@@ -20,6 +20,9 @@
       ></TradingVue>
     </div>
     <div class="row">
+      <HistoricalTable v-bind:items="this.filteredData" />
+    </div>
+    <div class="row">
       <router-link to="/"
         ><button type="button" class="btn btn-outline-danger">
           <svg
@@ -42,6 +45,7 @@
   </div>
 </template>
 <script>
+import HistoricalTable from "./HistoricalTable";
 import TradingVue from "trading-vue-js";
 const dateFormat = require("dateformat");
 
@@ -49,22 +53,24 @@ export default {
   name: "HistoricalChart",
   components: {
     TradingVue,
+    HistoricalTable,
   },
   beforeMount() {
     if (this.$route.params && this.$route.params.response) {
       let chartData = this.$route.params.response.data;
-      chartData = chartData
-        .filter((item) => item.open !== undefined && item.open !== null)
-        .map((item) => {
-          return [
-            item.date * 1000,
-            item.open,
-            item.high,
-            item.low,
-            item.close,
-            item.volume,
-          ];
-        });
+      this.filteredData = chartData.filter(
+        (item) => item.open !== undefined && item.open !== null
+      );
+      chartData = this.filteredData.map((item) => {
+        return [
+          item.date * 1000,
+          item.open,
+          item.high,
+          item.low,
+          item.close,
+          item.volume,
+        ];
+      });
       chartData.sort((a, b) => {
         return a[0] - b[0];
       });
@@ -88,6 +94,7 @@ export default {
       currentCompany: null,
       startDate: null,
       endDate: null,
+      filteredData: [],
       chart: {
         type: "Candles",
         ohlcv: [],
