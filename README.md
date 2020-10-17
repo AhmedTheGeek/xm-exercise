@@ -8,7 +8,9 @@
 ### Installation
 
 1. Clone the project.
-2. Run `make up`.
+2. Follow the instruction to download the `prod.env.example.zip` file.
+3. Unzip it and rename the content to .env and place it in the `backend` directory.
+4. Run `make up`.
 
 ### Dockerized Version
 
