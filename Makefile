@@ -48,7 +48,6 @@ docker-build:
 print-access-info:
 	$(info Access the frontend on "http://localhost:8080")
 
-up:: install
 up:: docker-build
 up:: print-access-info
 
