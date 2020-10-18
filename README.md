@@ -8,7 +8,7 @@
 ### Installation
 
 1. Clone the project.
-2. Run `make up`.
+2. Run `make up` or `docker-compose up`.
 
 ### Dockerized Version
 

@@ -33,7 +33,7 @@ export default {
   props: ["items"],
   methods: {
     formatTimestamp(timestamp) {
-      return dateFormat(new Date(timestamp), "dd-mm-yyyy");
+      return dateFormat(new Date(timestamp * 1000), "dd-mm-yyyy");
     },
     fixDecimalCount(number) {
       return parseFloat(number).toFixed(2);
