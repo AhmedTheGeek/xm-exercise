@@ -19,8 +19,9 @@ After running the `make up` command you'll be able to access the frontend on `ht
 To start the backend:
 
 1. `cd backend`
-2. `composer install`
-3. `php artisan serve`
+2. `place the .env file`
+3. `composer install`
+4. `php artisan serve`
 
 To start the frontend:
 
